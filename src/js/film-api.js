@@ -20,7 +20,7 @@ export {
   fetchGenresAPI,
   fetchMovieInfoAPI,
   fetchFilmsSearch,
-  trendingFilms
+  trendingFilms,
 };
 
 // FETCH FOR MOVIE OF THE DAY
@@ -56,19 +56,21 @@ const page = pagination.getCurrentPage();
 
 async function trendingFilms() {
   return await fetch(`${URL}/trending/movie/week?api_key=${KEY}&page=1`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not OK');
-    }
-    return response.json();
-  }).then(data => {
-    return data.results;
-  }).catch(error => {
-    console.error(
-      'There has been a problem with your fetch operation:',
-      error
-    );
-  });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not OK');
+      }
+      return response.json();
+    })
+    .then(data => {
+      return data.results;
+    })
+    .catch(error => {
+      console.error(
+        'There has been a problem with your fetch operation:',
+        error
+      );
+    });
 }
 
 async function fetchFilmsAPI(page) {
@@ -136,8 +138,13 @@ async function fetchMoreGenresAPI(event) {
 //fetchFilmsAPI();
 
 // FETCH FOR GENRE
+
+//const URL = 'https://api.themoviedb.org/3';
+
 async function fetchGenresAPI() {
-  return await fetch(`${URL}/genre/movie/list?api_key=${KEY}`)
+  return await fetch(
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=cf961b1b89f4c4a28558be2b04fdd59a`
+  )
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not OK');

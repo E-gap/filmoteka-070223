@@ -43,7 +43,8 @@ const refs = {
   filmModalList: document.querySelector('.backdrop'),
 };
 
-const noPosterImg ='https://freedesignfile.com/upload/2018/11/Characters-in-film-design-elements-background-vector-graphic-715.jpg'
+const noPosterImg =
+  'https://freedesignfile.com/upload/2018/11/Characters-in-film-design-elements-background-vector-graphic-715.jpg';
 const basicImgURL = 'https://image.tmdb.org/t/p/w500';
 const pagination = new Pagination(refs.pagination, options);
 const page = pagination.getCurrentPage();
