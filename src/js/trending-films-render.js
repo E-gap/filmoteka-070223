@@ -52,6 +52,9 @@ const page = pagination.getCurrentPage();
 fetchGenresAPI().then(genres => {
   fetchFilmsAPI(page).then(data => {
     let markup = createCardMarkup(data, genres);
+    if (!refs.movieList) {
+      return;
+    }
     refs.movieList.insertAdjacentHTML('beforeend', markup);
   });
 });
